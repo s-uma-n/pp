@@ -1,61 +1,130 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>감정 기반 플레이리스트</title>
   <style>
-    body {
-      font-family: 'Pretendard', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f7f7f7;
-      color: #333;
-    }
-    header {
-      background-color: #111;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
-    .emotion-menu {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    .emotion-btn {
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      background-color: #e0e0e0;
-      transition: 0.3s;
-    }
-    .emotion-btn:hover {
-      background-color: #ccc;
-    }
-    .playlist {
-      display: none;
-      padding: 1rem 2rem;
-    }
-    .playlist.active {
-      display: block;
-    }
-    h2 {
-      margin-top: 2rem;
-      color: #555;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #ddd;
-    }
-  </style>
+  body {
+    font-family: 'Pretendard', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f9f9f9, #e6e6e6);
+    color: #333;
+  }
+
+  header {
+    background-color: #111;
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .emotion-menu {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .emotion-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #e0e0e0;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .emotion-btn:hover {
+    background-color: #d1d1d1;
+    transform: translateY(-2px);
+  }
+
+  .playlist {
+    display: none;
+    padding: 2rem;
+    max-width: 650px;
+    margin: 0 auto 3rem auto;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  .playlist.active {
+    display: block;
+  }
+
+  h2 {
+    margin-top: 0;
+    color: #444;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+  }
+
+  li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  li::before {
+    content: "🎵";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    color: #888;
+  }
+
+  a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+  }
+
+  a:hover {
+    color: #0077ff;
+    text-decoration: underline;
+  }
+
+  .desc {
+    margin: 0.3rem 0 0 0;
+    color: #666;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+.happy-theme {
+  background-color: #fff9d1;
+}
+
+.love-theme {
+  background-color: #ffe6f0;
+}
+
+.sad-theme {
+  background-color: #e0f0ff;
+}
+
+</style>
+
 </head>
 <body>
   <header>
@@ -71,64 +140,191 @@
   <div id="happy" class="playlist">
     <h2>😃 신나고 싶을 때</h2>
     <ul>
-      <li>Day6 - Dancedance</li>
-      <li>Day6 - Best Part</li>
-      <li>Day6 - Free하게</li>
-      <li>Chrissy Costanza - Hero too</li>
-      <li>YoungK - Strange</li>
-      <li>YoungK - Let it be summer</li>
-      <li>Mrs. Green Apple - ダンスホール</li>
-      <li>Xdinary Heroes - Happy Deathday</li>
-      <li>Xdinary Heroes - Sucker Punch!</li>
-      <li>오월오일 - Tree</li>
-      <li>Vaundy - まぶた</li>
-      <li>Lenny Code Fiction - Make My Story</li>
-      <li>Super Beaver - ヒタムキ</li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=NAW0idSQ6Zs&pp=ygULZGFuY2UgZGFuY2U%3D" target="_blank" rel="noopener noreferrer">Day6 - Dancedance</a>
+        <p class="desc">오늘 미칠 때까지 춤추자</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=a-UfQfufkgU&pp=ygUWYmVzdCBwYXJ0IOuNsOydtOyLneyKpA%3D%3D" target="_blank" rel="noopener noreferrer">Day6 - Best Part</a>
+        <p class="desc">언제 죽을지 모르니 재밌게 즐기자</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=SujoDZYCMCs&pp=ygUKRnJlZe2VmOqyjA%3D%3D" target="_blank" rel="noopener noreferrer">Day6 - Free하게</a>
+        <p class="desc">아무 신경 쓰지 말고 즐기자</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=GgwUenaQqlM&pp=ygUeY2hyaXNzeSBjb3N0YW56YSBoZXJvIHRvbyBsaXZl" target="_blank" rel="noopener noreferrer">Chrissy Costanza - Hero too</a>
+        <p class="desc">히어로로서 물러나지 않겠다</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=KeCUEwY0iBI&pp=ygUQWW91bmdLIC0gU3RyYW5nZQ%3D%3D" target="_blank" rel="noopener noreferrer">YoungK - Strange</a>
+        <p class="desc">쉬고 싶을 때 와서 즐겨</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=uTxtBbO8Psw&pp=ygUZWW91bmdLIC0gTGV0IGl0IGJlIHN1bW1lcg%3D%3D" target="_blank" rel="noopener noreferrer">YoungK - Let it be summer</a>
+        <p class="desc">언젠가 갈 여름이어도 즐기자</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=x2rvSf0STBM&pp=ygUlTXJzLiBHcmVlbiBBcHBsZSAtIOODgOODs-OCueODm-ODvOODqw%3D%3D" target="_blank" rel="noopener noreferrer">Mrs. Green Apple - ダンスホール</a>
+        <p class="desc">언제든 춤춰도 괜찮아</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=fGubAEGT8f4&pp=ygUfWGRpbmFyeSBIZXJvZXMgLSBIYXBweSBEZWF0aGRheQ%3D%3D" target="_blank" rel="noopener noreferrer">Xdinary Heroes - Happy Deathday</a>
+        <p class="desc">죽을 날을 축하하며 광대처럼 웃자</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=uBx8UVU6ShI&pp=ygUeWGRpbmFyeSBIZXJvZXMgLSBTdWNrZXIgUHVuY2gh" target="_blank" rel="noopener noreferrer">Xdinary Heroes - Sucker Punch!</a>
+        <p class="desc">세상을 뒤집는 한방을 날리자</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=eT54rGmRvLQ&pp=ygUT7Jik7JuU7Jik7J28IC0gVHJlZQ%3D%3D" target="_blank" rel="noopener noreferrer">오월오일 - Tree</a>
+        <p class="desc">아름다운 이 마음에 춤추자</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=fjx_uy5eD8g&pp=ygUSVmF1bmR5IC0g44G-44G244Gf" target="_blank" rel="noopener noreferrer">Vaundy - まぶた</a>
+        <p class="desc">슬프지만 신나는 멜로디</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=P-eNMO8L5Hs&pp=ygUiTGVubnkgQ29kZSBGaWN0aW9uIC0gTWFrZSBNeSBTdG9yeQ%3D%3D" target="_blank" rel="noopener noreferrer">Lenny Code Fiction - Make My Story</a>
+        <p class="desc">내가 나로 있기 위해 부를게</p>
+      </li>
+       <li>
+        <a href="https://www.youtube.com/watch?v=vk0iPWFxQ9w&pp=ygUXS0FOQS1CT09OIC0gc3RhciBtYXJrZXLSBwkJsgkBhyohjO8%3D" target="_blank" rel="noopener noreferrer">KANA-BOON - star marker</a>
+        <p class="desc">바꿀 수 없는 과거에 색을 칠해가네</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=rOheZgDIPUs&pp=ygUbU3VwZXIgQmVhdmVyIC0g44OS44K_44Og44Kt" target="_blank" rel="noopener noreferrer">Super Beaver - ヒタムキ</a>
+        <p class="desc">의지를 갖고있는 웃음을 가진 곡</p>
+      </li>
     </ul>
   </div>
 
   <div id="love" class="playlist">
     <h2>💕 짝사랑할 때</h2>
     <ul>
-      <li>Day6 - 좋은 걸 뭐 어떡해</li>
-      <li>Day6 - 그녀가 웃었다</li>
-      <li>Day6 - 그렇더라고요</li>
-      <li>Day6 - 좋아합니다</li>
-      <li>Day6 - 메이플라떼</li>
-      <li>Day6 - 돌아갈래요</li>
-      <li>Day6 - How to love</li>
-      <li>Day6 - 태양처럼</li>
-      <li>Day6 - 사랑하게 해주라</li>
-      <li>Day6 - 아직 거기 살아</li>
-      <li>Day6 - 도와줘요 Rock&Roll</li>
-      <li>라쿠나 - Montauk</li>
-      <li>Official髭男dism - Pretender</li>
-      <li>Xdinary Heroes - Again? Again!</li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=4RJWqIEo_Tc&pp=ygUfRGF5NiAtIOyii-ydgCDqsbgg662QIOyWtOuWoe2VtA%3D%3D" target="_blank" rel="noopener noreferrer">Day6 - 좋은 걸 뭐 어떡해</a>
+        <p class="desc">네가 힘들게 해도 이미 빠진 걸 어떡해</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=09ig852MsMg&pp=ygUaRGF5NiAtIOq3uOuFgOqwgCDsm4Psl4jri6Q%3D" target="_blank" rel="noopener noreferrer">Day6 - 그녀가 웃었다</a>
+        <p class="desc">설레는 고백송</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=qWQ1xOfUNYQ&pp=ygUZRGF5NiAtIOq3uOugh-uNlOudvOqzoOyalNIHCQmyCQGHKiGM7w%3D%3D" target="_blank" rel="noopener noreferrer">Day6 - 그렇더라고요</a>
+        <p class="desc">내가 대신 아파해주고 싶을 만큼 좋아해</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=daoMYJv8i0c&pp=ygUWRGF5NiAtIOyii-yVhO2VqeuLiOuLpA%3D%3D" target="_blank" rel="noopener noreferrer">Day6 - 좋아합니다</a>
+        <p class="desc">참으려 해봤지만 더는 고백을 못 참겠어</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=HUTOzH05XmE&pp=ygUWRGF5NiAtIOuplOydtO2UjOudvOuWvNIHCQmyCQGHKiGM7w%3D%3D" target="_blank" rel="noopener noreferrer">Day6 - 메이플라떼</a>
+        <p class="desc">너도 같은 향을 맡고 있을까</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=_spghow6JqY&pp=ygUUZGF5NiDrj4zslYTqsIjrnpjsmpQ%3D" target="_blank" rel="noopener noreferrer">Day6 - 돌아갈래요</a>
+        <p class="desc">너와 함께였던 그때로 돌아갈래요</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=qCZm8abq8Co&pp=ygUSRGF5NiAtIEhvdyB0byBsb3Zl" target="_blank" rel="noopener noreferrer">Day6 - How to love</a>
+        <p class="desc">한 번도 안 해본 사랑, 어떻게 하는 걸까</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=jGbwb2VVhUw&pp=ygUTRGF5NiAtIO2DnOyWkeyymOufvNIHCQmyCQGHKiGM7w%3D%3D" target="_blank" rel="noopener noreferrer">Day6 - 태양처럼</a>
+        <p class="desc">너의 눈은 태양처럼 반짝여</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=0JC4cm2fXsc&pp=ygUdRGF5NiAtIOyCrOueke2VmOqyjCDtlbTso7zrnbw%3D" target="_blank" rel="noopener noreferrer">Day6 - 사랑하게 해주라</a>
+        <p class="desc">그냥 너를 사랑하게 해주기만 해</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=KzXkHD3W7Pk&pp=ygUbRGF5NiAtIOyVhOyngSDqsbDquLAg7IK07JWE" target="_blank" rel="noopener noreferrer">Day6 - 아직 거기 살아</a>
+        <p class="desc">너와 걷던 거리 너와 치던 장난</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=LCpEVQ9yvVk&pp=ygUdRGF5NiAtIOuPhOyZgOykmOyalCBSb2NrJlJvbGw%3D" target="_blank" rel="noopener noreferrer">Day6 - 도와줘요 Rock&Roll</a>
+        <p class="desc">너에게 고백할 노래야</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=muZWN0db28k&pp=ygUT65287L-g64KYIC0gTW9udGF1aw%3D%3D" target="_blank" rel="noopener noreferrer">라쿠나 - Montauk</a>
+        <p class="desc">난 전부 너의 것이야</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=TQ8WlA2GXbk&pp=ygUeT2ZmaWNpYWzpq63nlLdkaXNtIC0gUHJldGVuZGVy" target="_blank" rel="noopener noreferrer">Official髭男dism - Pretender</a>
+        <p class="desc">너의 운명의 상대는 내가 아니야</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=QAsvxJnZr5Y&pp=ygUeWGRpbmFyeSBIZXJvZXMgLSBBZ2Fpbj8gQWdhaW4h" target="_blank" rel="noopener noreferrer">Xdinary Heroes - Again? Again!</a>
+        <p class="desc">너에게 빠지지 않을 방법을 내게 알려줘</p>
+      </li>
     </ul>
   </div>
 
   <div id="sad" class="playlist">
     <h2>😢 울적할 때</h2>
     <ul>
-      <li>Eve - 僕らの</li>
-      <li>Omoinotake - つぼみ</li>
-      <li>Xdinary Heroes - Walking to the Moon</li>
-      <li>Tani Yuuki - もう一度</li>
-      <li>윤도현밴드 - 흰수염고래</li>
-      <li>Vaundy - benefits</li>
-      <li>Vaundy - 裸の勇者</li>
-      <li>Vaundy - しわあわせ</li>
-      <li>sumika - Higher Ground</li>
-      <li>菅田将暉 - ロングホープ・フィリア</li>
-      <li>Day6 - Maybe Tomorrow</li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=exOi_zsOHwM&pp=ygUPRXZlIC0g5YOV44KJ44Gu" target="_blank" rel="noopener noreferrer">Eve - 僕らの</a>
+        <p class="desc">우리들의 마음도 전부 놓치지 않을 거야</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=ziInmNuf-QU&pp=ygUWT21vaW5vdGFrZSAtIOOBpOOBvOOBvw%3D%3D" target="_blank" rel="noopener noreferrer">Omoinotake - つぼみ</a>
+        <p class="desc">지켜주고 싶어</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=TO6TBdUfcE0&pp=ygUkWGRpbmFyeSBIZXJvZXMgLSBXYWxraW5nIHRvIHRoZSBNb29u" target="_blank" rel="noopener noreferrer">Xdinary Heroes - Walking to the Moon</a>
+        <p class="desc">여기서 내려다본 이곳은</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=uP8CtPMAd5Q&pp=ygUZVGFuaSBZdXVraSAtIOOCguOBhuS4gOW6pg%3D%3D" target="_blank" rel="noopener noreferrer">Tani Yuuki - もう一度</a>
+        <p class="desc">한 번만 더 보고 싶어</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=nu3YsyDplUQ&pp=ygUh7Jyk64-E7ZiE67C065OcIC0g7Z2w7IiY7Je86rOg656Y" target="_blank" rel="noopener noreferrer">윤도현밴드 - 흰수염고래</a>
+        <p class="desc">혼자 가지마 내가 있잖아</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=HH1g5faSLTY&pp=ygURVmF1bmR5IC0gYmVuZWZpdHM%3D" target="_blank" rel="noopener noreferrer">Vaundy - benefits</a>
+        <p class="desc">사랑 같은 건 시시해</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=sADskV54iNc&pp=ygUNVmF1bmR5IC0gZ2lmdA%3D%3D" target="_blank" rel="noopener noreferrer">Vaundy - gift</a>
+        <p class="desc">그건 사랑으로부터의 선물이야</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=JwmGruvGt_I&pp=ygUYVmF1bmR5IC0g44GX44KP44GC44KP44Gb" target="_blank" rel="noopener noreferrer">Vaundy - しわあわせ</a>
+        <p class="desc">우리 변하지 않을 거야</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=xQS6sE5K0pY&pp=ygUWc3VtaWthIC0gSGlnaGVyIEdyb3VuZNIHCQmyCQGHKiGM7w%3D%3D" target="_blank" rel="noopener noreferrer">sumika - Higher Ground</a>
+        <p class="desc">더 이상 망설이지 않을 거야</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=5KABLiUE1zQ&pp=ygUw6I-F55Sw5bCG5pqJIC0g44Ot44Oz44Kw44Ob44O844OX44O744OV44Kj44Oq44Ki" target="_blank" rel="noopener noreferrer">菅田将暉 - ロングホープ・フィリア</a>
+        <p class="desc">모든 삶에 빛이 함께 하기를</p>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=0fyZqS0N19o&pp=ygUVRGF5NiAtIE1heWJlIFRvbW9ycm93" target="_blank" rel="noopener noreferrer">Day6 - Maybe Tomorrow</a>
+        <p class="desc">오늘보다 내일이 더 좋은 날일 거야</p>
+      </li>
     </ul>
   </div>
 
   <script>
-    function showPlaylist(id) {
-      document.querySelectorAll('.playlist').forEach(p => p.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+    function showPlaylist(playlistId) {
+      const playlists = document.querySelectorAll('.playlist');
+      playlists.forEach(pl => {
+        if(pl.id === playlistId) {
+          pl.classList.add('active');
+        } else {
+          pl.classList.remove('active');
+        }
+      });
     }
+    // 페이지 로드 시 기본으로 첫 번째 감정 플레이리스트 보이게 설정
+    window.onload = () => showPlaylist('happy');
   </script>
 </body>
 </html>
+
